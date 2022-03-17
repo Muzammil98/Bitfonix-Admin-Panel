@@ -1,244 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Bitfonix | Admin Panel</title>
-  
-  <link rel="stylesheet" href="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-	<link rel="stylesheet" href="../assets/fonts/feather-font/css/iconfont.css">
-	<link rel="stylesheet" href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
-  <link rel="shortcut icon" href="../assets/images/favicon.png" />
-  <link rel="stylesheet" href="../assets/vendors/core/core.css">
-  <link rel="stylesheet" href="../assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-	<link rel="stylesheet" href="../assets/css/demo_1/style.css">
-</head>
-<body>
-	<div class="main-wrapper">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bitfonix | Admin Panel</title>
 
-		<!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar">
-            <div class="sidebar-header">
-              <a href="#" class="sidebar-brand">
-                Noble<span>UI</span>
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/fonts/feather-font/css/iconfont.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/flag-icon-css/css/flag-icon.min.css"
+    />
+    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../assets/vendors/core/core.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css"
+    />
+    <link rel="stylesheet" href="../assets/css/demo_1/style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <a href="#" class="sidebar-brand"> Noble<span>UI</span> </a>
+          <div class="sidebar-toggler not-active">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="sidebar-body">
+          <ul class="nav">
+            <li class="nav-item nav-category">Main</li>
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <i class="link-icon" data-feather="box"></i>
+                <span class="link-title">Dashboard</span>
               </a>
-              <div class="sidebar-toggler not-active">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <div class="sidebar-body">
-              <ul class="nav">
-                <li class="nav-item nav-category">Main</li>
-                <li class="nav-item">
-                  <a href="index.html" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Dashboard</span>
-                  </a>
-                </li>
-                <li class="nav-item nav-category">Users</li>
-                <li class="nav-item">
-                  <a href="users.html" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Registered User</span>
-                  </a>
-                </li>
-                <li class="nav-item nav-category">Extras</li>
-                <li class="nav-item">
-                  <a href="transaction.html" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Notifications</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+            </li>
+            <li class="nav-item nav-category">Users</li>
+            <li class="nav-item">
+              <a href="users.html" class="nav-link">
+                <i class="link-icon" data-feather="box"></i>
+                <span class="link-title">Registered User</span>
+              </a>
+            </li>
+            <li class="nav-item nav-category">Extras</li>
+            <li class="nav-item">
+              <a href="transaction.html" class="nav-link">
+                <i class="link-icon" data-feather="box"></i>
+                <span class="link-title">Notifications</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- partial -->
+
+      <div class="page-wrapper">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar">
+          <a href="#" class="sidebar-toggler">
+            <i data-feather="menu"></i>
+          </a>
+          <div class="navbar-content">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown nav-notifications">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="notificationDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i data-feather="bell"></i>
+                  <div class="indicator">
+                    <div class="circle"></div>
+                  </div>
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="notificationDropdown"
+                >
+                  <div
+                    class="dropdown-header d-flex align-items-center justify-content-between"
+                  >
+                    <p class="mb-0 font-weight-medium">6 New Notifications</p>
+                    <a href="javascript:;" class="text-muted">Clear all</a>
+                  </div>
+                  <div class="dropdown-body">
+                    <a href="javascript:;" class="dropdown-item">
+                      <div class="icon">
+                        <i data-feather="user-plus"></i>
+                      </div>
+                      <div class="content">
+                        <p>New customer registered</p>
+                        <p class="sub-text text-muted">2 sec ago</p>
+                      </div>
+                    </a>
+                    <a href="javascript:;" class="dropdown-item">
+                      <div class="icon">
+                        <i data-feather="gift"></i>
+                      </div>
+                      <div class="content">
+                        <p>New Order Recieved</p>
+                        <p class="sub-text text-muted">30 min ago</p>
+                      </div>
+                    </a>
+                    <a href="javascript:;" class="dropdown-item">
+                      <div class="icon">
+                        <i data-feather="alert-circle"></i>
+                      </div>
+                      <div class="content">
+                        <p>Server Limit Reached!</p>
+                        <p class="sub-text text-muted">1 hrs ago</p>
+                      </div>
+                    </a>
+                    <a href="javascript:;" class="dropdown-item">
+                      <div class="icon">
+                        <i data-feather="layers"></i>
+                      </div>
+                      <div class="content">
+                        <p>Apps are ready for update</p>
+                        <p class="sub-text text-muted">5 hrs ago</p>
+                      </div>
+                    </a>
+                    <a href="javascript:;" class="dropdown-item">
+                      <div class="icon">
+                        <i data-feather="download"></i>
+                      </div>
+                      <div class="content">
+                        <p>Download completed</p>
+                        <p class="sub-text text-muted">6 hrs ago</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="dropdown-footer d-flex align-items-center justify-content-center"
+                  >
+                    <a href="javascript:;">View all</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown nav-profile">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="profileDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img src="https://via.placeholder.com/30x30" alt="profile" />
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <div
+                    class="dropdown-header d-flex flex-column align-items-center"
+                  >
+                    <div class="figure mb-3">
+                      <img src="https://via.placeholder.com/80x80" alt="" />
+                    </div>
+                    <div class="info text-center">
+                      <p class="name font-weight-bold mb-0">Amiah Burton</p>
+                      <p class="email text-muted mb-3">amiahburton@gmail.com</p>
+                    </div>
+                  </div>
+                  <div class="dropdown-body">
+                    <ul class="profile-nav p-0 pt-3">
+                      <li class="nav-item">
+                        <a href="pages/general/profile.html" class="nav-link">
+                          <i data-feather="user"></i>
+                          <span>Profile</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="javascript:;" class="nav-link">
+                          <i data-feather="edit"></i>
+                          <span>Edit Profile</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="javascript:;" class="nav-link">
+                          <i data-feather="log-out"></i>
+                          <span>Log Out</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-content">
+          <nav class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Forms</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Basic Elements
+              </li>
+            </ol>
           </nav>
-		<!-- partial -->
-	
-		<div class="page-wrapper">
-					
-			<!-- partial:partials/_navbar.html -->
-            <nav class="navbar">
-				<a href="#" class="sidebar-toggler">
-					<i data-feather="menu"></i>
-				</a>
-				<div class="navbar-content">
-				
-					<ul class="navbar-nav">
-					<li class="nav-item dropdown nav-notifications">
-							<a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i data-feather="bell"></i>
-								<div class="indicator">
-									<div class="circle"></div>
-								</div>
-							</a>
-							<div class="dropdown-menu" aria-labelledby="notificationDropdown">
-								<div class="dropdown-header d-flex align-items-center justify-content-between">
-									<p class="mb-0 font-weight-medium">6 New Notifications</p>
-									<a href="javascript:;" class="text-muted">Clear all</a>
-								</div>
-								<div class="dropdown-body">
-									<a href="javascript:;" class="dropdown-item">
-										<div class="icon">
-											<i data-feather="user-plus"></i>
-										</div>
-										<div class="content">
-											<p>New customer registered</p>
-											<p class="sub-text text-muted">2 sec ago</p>
-										</div>
-									</a>
-									<a href="javascript:;" class="dropdown-item">
-										<div class="icon">
-											<i data-feather="gift"></i>
-										</div>
-										<div class="content">
-											<p>New Order Recieved</p>
-											<p class="sub-text text-muted">30 min ago</p>
-										</div>
-									</a>
-									<a href="javascript:;" class="dropdown-item">
-										<div class="icon">
-											<i data-feather="alert-circle"></i>
-										</div>
-										<div class="content">
-											<p>Server Limit Reached!</p>
-											<p class="sub-text text-muted">1 hrs ago</p>
-										</div>
-									</a>
-									<a href="javascript:;" class="dropdown-item">
-										<div class="icon">
-											<i data-feather="layers"></i>
-										</div>
-										<div class="content">
-											<p>Apps are ready for update</p>
-											<p class="sub-text text-muted">5 hrs ago</p>
-										</div>
-									</a>
-									<a href="javascript:;" class="dropdown-item">
-										<div class="icon">
-											<i data-feather="download"></i>
-										</div>
-										<div class="content">
-											<p>Download completed</p>
-											<p class="sub-text text-muted">6 hrs ago</p>
-										</div>
-									</a>
-								</div>
-								<div class="dropdown-footer d-flex align-items-center justify-content-center">
-									<a href="javascript:;">View all</a>
-								</div>
-							</div>
-						</li>
-						<li class="nav-item dropdown nav-profile">
-							<a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<img src="https://via.placeholder.com/30x30" alt="profile">
-							</a>
-							<div class="dropdown-menu" aria-labelledby="profileDropdown">
-								<div class="dropdown-header d-flex flex-column align-items-center">
-									<div class="figure mb-3">
-										<img src="https://via.placeholder.com/80x80" alt="">
-									</div>
-									<div class="info text-center">
-										<p class="name font-weight-bold mb-0">Amiah Burton</p>
-										<p class="email text-muted mb-3">amiahburton@gmail.com</p>
-									</div>
-								</div>
-								<div class="dropdown-body">
-									<ul class="profile-nav p-0 pt-3">
-										<li class="nav-item">
-											<a href="pages/general/profile.html" class="nav-link">
-												<i data-feather="user"></i>
-												<span>Profile</span>
-											</a>
-										</li>
-										<li class="nav-item">
-											<a href="javascript:;" class="nav-link">
-												<i data-feather="edit"></i>
-												<span>Edit Profile</span>
-											</a>
-										</li>
-										<li class="nav-item">
-											<a href="javascript:;" class="nav-link">
-												<i data-feather="log-out"></i>
-												<span>Log Out</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<!-- partial -->
+          <button class="btn btn-danger mb-2" id="deleteUserBtn">Delete</button>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h6 class="card-title">Basic Form</h6>
+                  <!-- <form
+                    class="forms-sample"
+                    action="#"
+                    onsubmit="e => updateUserFunction(e)"
+                  > -->
+                  <div class="form-group">
+                    <label for="exampleInputFirstname1">Firstname</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputFirstname1"
+                      autocomplete="off"
+                      placeholder="Firstname"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputLastname1">Lastname</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputLastname1"
+                      autocomplete="off"
+                      placeholder="Lastname"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      placeholder="Email"
+                      readonly
+                      aria-readonly="true"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                      autocomplete="off"
+                      placeholder="Password"
+                      readonly
+                      aria-readonly="true"
+                    />
+                  </div>
 
-			<div class="page-content">
-                <nav class="page-breadcrumb">
-					<ol class="breadcrumb">
-                        
-						<li class="breadcrumb-item"><a href="#">Forms</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Basic Elements</li>
-					</ol>
-				</nav>
-
-				<div class="row">
-					<div class="col-md-6 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-								<h6 class="card-title">Basic Form</h6>
-								<form class="forms-sample">
-									<div class="form-group">
-										<label for="exampleInputUsername1">Username</label>
-										<input type="text" class="form-control" id="exampleInputUsername1" autocomplete="off" placeholder="Username">
-									</div>
-									<div class="form-group">
-										<label for="exampleInputEmail1">Email address</label>
-										<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-									</div>
-									<div class="form-group">
-										<label for="exampleInputPassword1">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off" placeholder="Password">
-									</div>
-								
-									<button type="submit" class="btn btn-primary mr-2">Update</button>
-									<a href="users.html" class="btn btn-light">Return</a>
-								</form>
+                  <button
+                    type="submit"
+                    class="btn btn-primary mr-2"
+                    id="updateUserBtn"
+                  >
+                    Update
+                  </button>
+                  <a href="users.html" class="btn btn-light">Return</a>
+                  <!-- </form> -->
+                </div>
               </div>
             </div>
-					</div>
-					
-				</div>
-				
+          </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h6 class="card-title">Wallet details</h6>
+                  <!-- <form
+                    class="forms-sample"
+                    action="#"
+                    onsubmit="e => updateUserWallet(e)"
+                  > -->
+                  <div class="form-group">
+                    <label for="exampleInputBuyingPower1">Buying Power</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputBuyingPower1"
+                      autocomplete="off"
+                      placeholder="$ 0.0"
+                    />
+                  </div>
 
-			</div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary mr-2"
+                    id="updateUserWalletBtn"
+                  >
+                    Update wallet
+                  </button>
+                  <a href="users.html" class="btn btn-light">Return</a>
+                  <!-- </form> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-			<!-- partial:partials/_footer.html -->
-			<footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between">
-				<p class="text-muted text-center text-md-left">Copyright © 2022 <a href="https://www.nobleui.com" target="_blank">Techphoenix</a>. All rights reserved</p>
-				<p class="text-muted text-center text-md-left mb-0 d-none d-md-block">Handcrafted With <i class="mb-1 text-primary ml-1 icon-small" data-feather="heart"></i></p>
-			</footer>
-			<!-- partial -->
-		
-		</div>
-	</div>
+        <!-- partial:partials/_footer.html -->
+        <footer
+          class="footer d-flex flex-column flex-md-row align-items-center justify-content-between"
+        >
+          <p class="text-muted text-center text-md-left">
+            Copyright © 2022
+            <a href="https://www.nobleui.com" target="_blank">Techphoenix</a>.
+            All rights reserved
+          </p>
+          <p class="text-muted text-center text-md-left mb-0 d-none d-md-block">
+            Handcrafted With
+            <i
+              class="mb-1 text-primary ml-1 icon-small"
+              data-feather="heart"
+            ></i>
+          </p>
+        </footer>
+        <!-- partial -->
+      </div>
+    </div>
 
-	<!-- core:js -->
-	<script src="../assets/vendors/core/core.js"></script>
-  <script src="../assets/vendors/jquery.flot/jquery.flot.js"></script>
-  <script src="../assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
-  <script src="../assets/js/dashboard.js"></script>
-	<!-- endinject -->
-  <!-- plugin js for this page -->
-  <script src="../assets/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="../assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-	<!-- end plugin js for this page -->
-	<!-- inject:js -->
-	<script src="../assets/vendors/feather-icons/feather.min.js"></script>
-	<script src="../assets/js/template.js"></script>
-	<!-- endinject -->
-  <!-- custom js for this page -->
-  <script src="../assets/js/data-table.js"></script>
-</body>
-</html>    
+    <!-- core:js -->
+    <script src="../assets/vendors/core/core.js"></script>
+    <script src="../assets/vendors/jquery.flot/jquery.flot.js"></script>
+    <script src="../assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <!-- endinject -->
+    <!-- plugin js for this page -->
+    <script src="../assets/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="../assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <!-- end plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../assets/vendors/feather-icons/feather.min.js"></script>
+    <script src="../assets/js/template.js"></script>
+    <!-- endinject -->
+    <!-- custom js for this page -->
+    <script src="../assets/js/data-table.js"></script>
+    <script src="../assets/js/custom-api.js"></script>
+  </body>
+</html>
