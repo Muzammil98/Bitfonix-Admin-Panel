@@ -120,6 +120,69 @@ const getUserDetails = () => {
     const walletId = response.id || response._id;
     localStorage.setItem("walletId", walletId);
     $("#exampleInputBuyingPower1").val(response.buying);
+    $("#exampleInputEquity1").val(response.equity);
+  });
+
+  $.ajax({
+    url: `${BASE_URL}/txs/user/${id}`,
+    headers: { Authorization: `Bearer ${token}` },
+  }).then((data) => {
+    const htmlData = data.map(
+      (item) => `<tr>
+			<td>${item.asset}</td>
+			<td>${item.price}</td>
+			<td>${item.quantity}</td>
+			<td>${item?.order?.orderType}</td>
+			<td>${item?.order?.exitOrder?.priceFeed || "-"}</td>
+			<td>${item?.order?.orderCompleted === true ? item.totalPrice : "-"}</td>
+      <td>${
+        item?.order?.orderCompleted === true
+          ? "Order complete"
+          : "Order not complete"
+      }</td>
+      <td>${item?.createdAt}</td>
+        </tr>`
+    );
+    console.log("HTML DATA", htmlData);
+    // const htmlData = data.map(
+    //   (item) => `<tr>
+    //     <td>${item.firstname}</td>
+    //     <td>${item.lastname}</td>
+    //     <td>${item.email}</td>
+    //     <td>${item.country}</td>
+    //     <td>${item.phoneNumber}</td>
+    //     <td>${
+    //       item.status === 1
+    //         ? "active"
+    //         : item.status === 2
+    //         ? "blocked"
+    //         : "deleted"
+    //     }</td>
+    //     <td>${item.createdAt}</td>
+    //     <td>
+    //       <a href="update_user.html?id=${item.id}">
+    //       Edit
+    //         <i data-feather="edit"></i>
+    //       </a>
+    //     </td>
+
+    //   </tr>`
+    // );
+
+    // $("#myTable3-body").append(`<tr>
+    // <td>${tx.asset}</td>
+    // <td>${tx.order.id}</td>
+    // <td>${tx.quantity}</td>
+    // <td>${tx.order?.enterOrder?.priceFeed || "-"}</td>
+    // <td>${tx.order?.exitOrder?.priceFeed || "-"}</td>
+    // <td>${
+    //   tx.order.orderCompleted === true
+    //     ? "Order complete"
+    //     : "Order not complete"
+    // }</td>
+    //   </tr>`);
+
+    $("#userOrdersTable tbody").html(htmlData);
   });
 };
 
@@ -162,8 +225,10 @@ const updateUserWallet = (e) => {
   const token = localStorage.getItem("token");
 
   const buying = $("#exampleInputBuyingPower1").val();
+  const equity = $("#exampleInputEquity1").val();
+
   // equity, profit, loss
-  const payload = { buying };
+  const payload = { buying, equity };
 
   console.log("PAYLOAD", payload);
   $.ajax({
